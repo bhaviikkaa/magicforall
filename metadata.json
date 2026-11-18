@@ -1,0 +1,8 @@
+{
+  "name": "Remix Story Doodles",
+  "description": "Turn a pasted story into a cozy visual flow of hand-drawn storybook scene doodles and a story mind map.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
