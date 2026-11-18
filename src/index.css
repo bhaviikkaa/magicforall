@@ -1,0 +1,330 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root,
+.theme-light {
+  --ink: #1b1c19;
+  --ink-secondary: #454741;
+  --line: #e6e3da;
+  --paper: #faf9f6;
+  --green: #2d5342;
+  --green-shadow: #223f32;
+  --card-bg: #ffffff;
+  --sidebar-bg: #f4f2ed;
+  --header-bg: #faf9f6;
+  --chip-bg: #efede7;
+  --active-tab-bg: #ebf2ee;
+  --active-tab-text: #274939;
+  --accent-bg: #2d5342;
+  --accent-hover: #244335;
+  --accent-soft: #ebf2ee;
+  --accent-text: #274939;
+  --surface-hover: #f2f0ea;
+  --canvas-bg: radial-gradient(circle at 25% 25%, #f3f5f2 0%, #faf9f6 65%, #f4f2ec 100%);
+  --canvas-dot: #d6d3ca;
+  --shadow-card: 0 1px 2px rgba(20, 22, 18, 0.04);
+  --shadow-card-hover: 0 10px 26px rgba(20, 22, 18, 0.06);
+  --radius-card: 10px;
+  --radius-control: 7px;
+}
+
+.theme-kids {
+  --ink: #4a2b4f;
+  --ink-secondary: #68426e;
+  --line: #f3c4d6;
+  --paper: #fff9db;
+  --green: #c94e7c;
+  --green-shadow: #a53762;
+  --card-bg: #fff7fa;
+  --sidebar-bg: #fff5f8;
+  --header-bg: #fff8fb;
+  --chip-bg: #ffe9f0;
+  --active-tab-bg: #ffd6e0;
+  --active-tab-text: #4a2b4f;
+  --accent-bg: #c94e7c;
+  --accent-hover: #b13b67;
+  --accent-soft: #ffe4ee;
+  --accent-text: #8c2e59;
+  --surface-hover: #ffeff5;
+  --canvas-bg: radial-gradient(circle at 20% 20%, #fff9db 0%, #fff3ea 52%, #ffe8f0 100%);
+  --canvas-dot: #efb9cc;
+  --shadow-card: 0 5px 16px rgba(217, 114, 152, 0.14);
+  --shadow-card-hover: 0 12px 26px rgba(217, 114, 152, 0.24);
+  --radius-card: 24px;
+  --radius-control: 20px;
+}
+
+.theme-dark {
+  --ink: #f1f0ec;
+  --ink-secondary: #c5c7c1;
+  --line: #23272e;
+  --paper: #0d0f11;
+  --green: #5b9075;
+  --green-shadow: #446e59;
+  --card-bg: #14171b;
+  --sidebar-bg: #101215;
+  --header-bg: #0d0f11;
+  --chip-bg: #1c2026;
+  --active-tab-bg: #192620;
+  --active-tab-text: #94c4ac;
+  --accent-bg: #4c7d65;
+  --accent-hover: #588d73;
+  --accent-soft: #17241e;
+  --accent-text: #94c4ac;
+  --surface-hover: #1b1f25;
+  --canvas-bg: radial-gradient(circle at 25% 25%, #14181d 0%, #0d0f11 65%, #0a0c0e 100%);
+  --canvas-dot: #262b33;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-card-hover: 0 10px 28px rgba(0, 0, 0, 0.42);
+  --radius-card: 10px;
+  --radius-control: 7px;
+}
+
+html[data-font-size="small"] {
+  font-size: 14px;
+}
+
+html[data-font-size="medium"] {
+  font-size: 16px;
+}
+
+html[data-font-size="large"] {
+  font-size: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-kids body,
+html.theme-kids body {
+  font-family: "Nunito", "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #fff9db;
+  background-image: linear-gradient(145deg, #fff9db 0%, #fff4e8 50%, #ffe8f0 100%);
+  background-attachment: fixed;
+}
+
+.theme-kids {
+  font-family: "Nunito", "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.theme-dark body,
+.theme-dark {
+  letter-spacing: 0.005em;
+}
+
+.font-display,
+.font-kalam {
+  font-family: "Fraunces", Georgia, serif;
+  font-variation-settings: "SOFT" 50, "WONK" 0;
+  letter-spacing: -0.02em;
+}
+
+.theme-kids p {
+  font-family: "Nunito", "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.theme-kids button,
+.theme-kids label,
+.theme-kids .kids-hand,
+.theme-kids .kids-crayon {
+  font-family: "Quicksand", "Nunito", sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.theme-kids .font-display,
+.theme-kids .font-kalam,
+.theme-kids h1,
+.theme-kids h2,
+.theme-kids h3,
+.theme-kids h4 {
+  font-family: "Gaegu", "Handlee", cursive;
+  font-variation-settings: normal;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+}
+
+.font-dm-mono {
+  font-family: "DM Mono", monospace;
+}
+
+.font-dm-sans {
+  font-family: "DM Sans", sans-serif;
+}
+
+.eyebrow-mono {
+  font-family: "DM Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+@keyframes sketchShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.sketch-shimmer {
+  background: linear-gradient(
+    110deg,
+    #f1efe9 25%,
+    #faf9f6 45%,
+    #e9e6de 65%,
+    #f1efe9 85%
+  );
+  background-size: 200% 100%;
+  animation: sketchShimmer 1.8s ease-in-out infinite;
+}
+
+.theme-kids .sketch-shimmer {
+  background: linear-gradient(
+    110deg,
+    #ffe9f0 25%,
+    #fff9db 45%,
+    #ffe0c2 65%,
+    #ffe9f0 85%
+  );
+  background-size: 200% 100%;
+}
+
+.theme-dark .sketch-shimmer {
+  background: linear-gradient(
+    110deg,
+    #181b20 25%,
+    #21252c 45%,
+    #181b20 65%,
+    #181b20 85%
+  );
+  background-size: 200% 100%;
+}
+
+.scene-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 200ms ease,
+    border-color 200ms ease;
+}
+
+.theme-kids .scene-card {
+  border: 2px dashed #efb8cc;
+  transition: transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 220ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease;
+}
+
+.scene-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.theme-kids .scene-card:hover {
+  transform: translateY(-4px) scale(1.008);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.theme-kids .kids-sticker-hover {
+  transition: transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 220ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease;
+}
+
+.theme-kids .kids-sticker-hover:hover {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.svg-doodle-frame svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Custom subtle horizontal scrollbar */
+.horizontal-flow-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+.horizontal-flow-scroll::-webkit-scrollbar-track {
+  background: var(--sidebar-bg);
+  border-radius: 999px;
+}
+.horizontal-flow-scroll::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 999px;
+}
+
+/* Print stylesheet: hide header, sidebar, tools, timeline dots & footer; show full-width cards with page-break-inside: avoid */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .app-shell-grid {
+    display: block !important;
+  }
+
+  .main-area {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .timeline-track {
+    padding-left: 0 !important;
+  }
+
+  .timeline-line,
+  .timeline-dot {
+    display: none !important;
+  }
+
+  .horizontal-flow-container {
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: visible !important;
+    gap: 16px !important;
+  }
+
+  .horizontal-card-item {
+    width: 100% !important;
+    flex: none !important;
+  }
+
+  .scene-card {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    box-shadow: none !important;
+    transform: none !important;
+    margin-bottom: 16px !important;
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+}
